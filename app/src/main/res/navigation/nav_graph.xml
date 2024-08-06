@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginScreen">
+    <fragment
+        android:id="@+id/loginScreen"
+        android:name="com.example.sweetspots.LoginScreen"
+        android:label="LoginScreen"
+        tools:layout="@layout/login_screen" >
+        <action
+            android:id="@+id/action_loginScreen_to_mainScreen"
+            app:destination="@id/mainScreen" />
+        <action
+            android:id="@+id/action_loginScreen_to_registerScreen"
+            app:destination="@id/registerScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainScreen"
+        android:name="com.example.sweetspots.MainScreen"
+        android:label="MainScreen"
+        tools:layout="@layout/main_screen">
+        <action
+            android:id="@+id/action_mainScreen_to_loginScreen"
+            app:destination="@id/loginScreen" />
+        <action
+            android:id="@+id/action_mainScreen_to_searchResult"
+            app:destination="@id/searchResult" />
+        <action
+            android:id="@+id/action_mainScreen_to_favoritesScreen"
+            app:destination="@id/favoritesScreen" />
+        <action
+            android:id="@+id/action_mainScreen_to_historyScreen"
+            app:destination="@id/historyScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerScreen"
+        android:name="com.example.sweetspots.RegisterScreen"
+        android:label="RegisterScreen"
+        tools:layout="@layout/register_screen" >
+        <action
+            android:id="@+id/action_registerScreen_to_loginScreen"
+            app:destination="@id/loginScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchResult"
+        android:name="com.example.sweetspots.SearchResult"
+        android:label="SearchResult"
+        tools:layout="@layout/search_result">
+        <action
+            android:id="@+id/action_searchResult_to_mainScreen"
+            app:destination="@id/mainScreen" />
+        <action
+            android:id="@+id/action_searchResult_to_localDetailsScreen"
+            app:destination="@id/localDetailsScreen" />
+        <argument
+            android:name="distance"
+            app:argType="float"
+            android:defaultValue="0" />
+    </fragment>
+    <fragment
+        android:id="@+id/localDetailsScreen"
+        android:name="com.example.sweetspots.LocalDetailsScreen"
+        android:label="LocalDetailsScreen"
+        tools:layout="@layout/local_details_screen">
+        <action
+            android:id="@+id/action_localDetailsScreen_to_searchResult"
+            app:destination="@id/searchResult" />
+        <argument android:name="local"
+            android:defaultValue="@null"
+            app:argType="com.example.sweetspots.Place"
+            app:nullable="true" />
+        <argument
+            android:name="modo"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_localDetailsScreen_to_historyScreen"
+            app:destination="@id/historyScreen" />
+        <action
+            android:id="@+id/action_localDetailsScreen_to_favoritesScreen"
+            app:destination="@id/favoritesScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/favoritesScreen"
+        android:name="com.example.sweetspots.FavoritesScreen"
+        android:label="FavoritesScreen"
+        tools:layout="@layout/favorites_screen" >
+        <action
+            android:id="@+id/action_favoritesScreen_to_mainScreen"
+            app:destination="@id/mainScreen" />
+        <action
+            android:id="@+id/action_favoritesScreen_to_localDetailsScreen"
+            app:destination="@id/localDetailsScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/historyScreen"
+        android:name="com.example.sweetspots.HistoryScreen"
+        android:label="HistoryScreen"
+        tools:layout="@layout/history_screen" >
+        <action
+            android:id="@+id/action_historyScreen_to_mainScreen"
+            app:destination="@id/mainScreen" />
+        <action
+            android:id="@+id/action_historyScreen_to_localDetailsScreen"
+            app:destination="@id/localDetailsScreen" />
+    </fragment>
+</navigation>
